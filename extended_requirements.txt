@@ -1,2 +1,1 @@
-jaeger-client==4.8.0
-
+jaeger-client @ git+https://github.com/cuongpiger/jaeger-client-python.git@v1.0.0
