@@ -14,11 +14,17 @@
 
 set -e
 
+conda_enable=$1
+conda_env_name=$2
+
 GEN_CMD=oslo-config-generator
+
+if [ "$conda_enable" = "True" ]; then
+  GEN_CMD=/home/$USER/anaconda3/envs/$conda_env_name/bin/oslo-config-generator
+fi
 
 if ! type "$GEN_CMD" > /dev/null; then
     echo "ERROR: $GEN_CMD not installed on the system."
-    exit 1
 fi
 
 for file in `ls etc/oslo-config-generator/*`; do
